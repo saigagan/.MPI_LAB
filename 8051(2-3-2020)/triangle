@@ -1,0 +1,18 @@
+org 0000
+	mov A,#55
+HERE:
+	mov p0,A
+	call delay
+	inc p0
+	sjmp here
+DELAY:
+	SETB TRO 
+
+BACK:
+	JNB tfo, back
+	CLR TRO
+	CLR TFO
+	DJNZ RS,DELAY
+	RET
+END
+	
